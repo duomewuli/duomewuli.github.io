@@ -6,14 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>我的第一篇博客文章 | Hexo</title>
+  <title>约瑟夫环问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客文章">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;08&#x2F;%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0&#x2F;index.html">
+  <meta name="description" content="##代码：#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int flag=0;typedef struct node{    int pos;&#x2F;&#x2F;编号    struct node next;} LINK;&#x2F;&#x2F;创建圆圈，返回链表的头指针LINK CreateList(int n){    int i;    LINK *p=NULL,head,*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="约瑟夫环问题">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##代码：#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int flag=0;typedef struct node{    int pos;&#x2F;&#x2F;编号    struct node next;} LINK;&#x2F;&#x2F;创建圆圈，返回链表的头指针LINK CreateList(int n){    int i;    LINK *p=NULL,head,*">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-08T02:14:43.894Z">
+<meta property="og:updated_time" content="2020-01-15T06:29:46.056Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,27 +152,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-约瑟夫环问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客文章
+      约瑟夫环问题
     </h1>
   
 
         
-        <a href="/2019/11/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2019-11-08T02:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
+        <a href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-01-15T06:25:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>##<br>代码：<br>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>int flag=0;<br>typedef struct node{<br>    int pos;//编号<br>    struct node <em>next;<br>} LINK;<br>//创建圆圈，返回链表的头指针<br>LINK <em>CreateList(int n)<br>{<br>    int i;<br>    LINK *p=NULL,</em>head,*q;<br>    for (i=0;i&lt;n;i++)<br>    {<br>        p=(LINK</em>)malloc(sizeof(LINK));<br>        if (i==0)<br>            head=p;<br>        else<br>        {<br>            q-&gt;next=p;<br>        }<br>        q=p;<br>    }<br>    p-&gt;next=head;<br>    for (i=1;i&lt;=n;i++)<br>    {<br>        head-&gt;pos=i;<br>        head=head-&gt;next;<br>    }<br>    head=p-&gt;next;<br>    return head;<br>}<br>// 删除第x个结点<br> LINK <em>DeleteList(LINK *p, int x)<br>{<br>    int i;<br>    LINK *q,</em>o;<br>    o=q=p;<br>        for (i=1;i&lt;x;i++)<br>        {<br>            o=q;<br>            q=q-&gt;next;<br>        }<br>        o-&gt;next=q-&gt;next;<br>        //free(q);<br>        flag++;<br>        return o-&gt;next;</p>
+<p>}</p>
+<p>int main()<br>{<br>    int n,m;<br>    scanf(“%d%d”,&amp;n,&amp;m);<br>    LINK *p;<br>    p=CreateList(n);<br>    if (m==1)<br>    {<br>        for (int i=0;i&lt;n-1;i++)<br>       {<br>          p=p-&gt;next;<br>       }<br>       printf(“%d”,p-&gt;pos);<br>    }<br>    else<br>    {<br>        do<br>        {<br>            p=DeleteList(p,m);<br>              //for (int u=0;u&lt;m-1;u++)<br>                //p=p-&gt;next;<br>        }<br>        while (flag!=n-1);<br>        printf(“%d”,p-&gt;pos);<br>    }<br>    return 0;<br> }</p>
+
       
 
       
@@ -249,7 +254,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +268,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          约瑟夫环问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/11/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客文章</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -151,6 +151,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-约瑟夫环问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">约瑟夫环问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-01-15T06:25:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##<br>代码：<br>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>int flag=0;<br>typedef struct node{<br>    int pos;//编号<br>    struct node <em>next;<br>} LINK;<br>//创建圆圈，返回链表的头指针<br>LINK <em>CreateList(int n)<br>{<br>    int i;<br>    LINK *p=NULL,</em>head,*q;<br>    for (i=0;i&lt;n;i++)<br>    {<br>        p=(LINK</em>)malloc(sizeof(LINK));<br>        if (i==0)<br>            head=p;<br>        else<br>        {<br>            q-&gt;next=p;<br>        }<br>        q=p;<br>    }<br>    p-&gt;next=head;<br>    for (i=1;i&lt;=n;i++)<br>    {<br>        head-&gt;pos=i;<br>        head=head-&gt;next;<br>    }<br>    head=p-&gt;next;<br>    return head;<br>}<br>// 删除第x个结点<br> LINK <em>DeleteList(LINK *p, int x)<br>{<br>    int i;<br>    LINK *q,</em>o;<br>    o=q=p;<br>        for (i=1;i&lt;x;i++)<br>        {<br>            o=q;<br>            q=q-&gt;next;<br>        }<br>        o-&gt;next=q-&gt;next;<br>        //free(q);<br>        flag++;<br>        return o-&gt;next;</p>
+<p>}</p>
+<p>int main()<br>{<br>    int n,m;<br>    scanf(“%d%d”,&amp;n,&amp;m);<br>    LINK *p;<br>    p=CreateList(n);<br>    if (m==1)<br>    {<br>        for (int i=0;i&lt;n-1;i++)<br>       {<br>          p=p-&gt;next;<br>       }<br>       printf(“%d”,p-&gt;pos);<br>    }<br>    else<br>    {<br>        do<br>        {<br>            p=DeleteList(p,m);<br>              //for (int u=0;u&lt;m-1;u++)<br>                //p=p-&gt;next;<br>        }<br>        while (flag!=n-1);<br>        printf(“%d”,p-&gt;pos);<br>    }<br>    return 0;<br> }</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -298,7 +363,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2020 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
