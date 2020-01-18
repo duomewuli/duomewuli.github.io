@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>约瑟夫环问题 | Hexo</title>
+  <title>HDU 1052 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##代码：#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int flag=0;typedef struct node{    int pos;&#x2F;&#x2F;编号    struct node next;} LINK;&#x2F;&#x2F;创建圆圈，返回链表的头指针LINK CreateList(int n){    int i;    LINK *p=NULL,head,*">
+  <meta name="description" content="#include&amp;lt;stdio.h&amp;gt;&#x2F;&#x2F;（我是田忌）思路就是我快马快就直接比，我快马比他快马慢我就拿慢马顶他快马，快马一样快就比慢马。int main (){    int a[1001],b[1001],c[505];&#x2F;&#x2F;a里装田忌的马，b里装king的马。c是后面用来装输出的。    int i,j,n,ji,sum,tk,kk,tm,km,x,flag=0;&#x2F;&#x2F;tk：田忌快马，kk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="约瑟夫环问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:title" content="HDU 1052">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;19&#x2F;1052%E2%80%9D&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##代码：#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int flag=0;typedef struct node{    int pos;&#x2F;&#x2F;编号    struct node next;} LINK;&#x2F;&#x2F;创建圆圈，返回链表的头指针LINK CreateList(int n){    int i;    LINK *p=NULL,head,*">
+<meta property="og:description" content="#include&amp;lt;stdio.h&amp;gt;&#x2F;&#x2F;（我是田忌）思路就是我快马快就直接比，我快马比他快马慢我就拿慢马顶他快马，快马一样快就比慢马。int main (){    int a[1001],b[1001],c[505];&#x2F;&#x2F;a里装田忌的马，b里装king的马。c是后面用来装输出的。    int i,j,n,ji,sum,tk,kk,tm,km,x,flag=0;&#x2F;&#x2F;tk：田忌快马，kk">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-15T06:29:46.056Z">
+<meta property="og:updated_time" content="2020-01-18T16:07:56.450Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,29 +152,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-约瑟夫环问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="hdu-1052”" class="article article-type-hdu " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      约瑟夫环问题
+      HDU 1052
     </h1>
   
 
         
-        <a href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-01-15T06:25:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
+        <a href="/2020/01/19/1052%E2%80%9D/" class="archive-article-date">
+  	<time datetime="2020-01-18T16:02:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##<br>代码：<br>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;<br>int flag=0;<br>typedef struct node{<br>    int pos;//编号<br>    struct node <em>next;<br>} LINK;<br>//创建圆圈，返回链表的头指针<br>LINK <em>CreateList(int n)<br>{<br>    int i;<br>    LINK *p=NULL,</em>head,*q;<br>    for (i=0;i&lt;n;i++)<br>    {<br>        p=(LINK</em>)malloc(sizeof(LINK));<br>        if (i==0)<br>            head=p;<br>        else<br>        {<br>            q-&gt;next=p;<br>        }<br>        q=p;<br>    }<br>    p-&gt;next=head;<br>    for (i=1;i&lt;=n;i++)<br>    {<br>        head-&gt;pos=i;<br>        head=head-&gt;next;<br>    }<br>    head=p-&gt;next;<br>    return head;<br>}<br>// 删除第x个结点<br> LINK <em>DeleteList(LINK *p, int x)<br>{<br>    int i;<br>    LINK *q,</em>o;<br>    o=q=p;<br>        for (i=1;i&lt;x;i++)<br>        {<br>            o=q;<br>            q=q-&gt;next;<br>        }<br>        o-&gt;next=q-&gt;next;<br>        //free(q);<br>        flag++;<br>        return o-&gt;next;</p>
-<p>}</p>
-<p>int main()<br>{<br>    int n,m;<br>    scanf(“%d%d”,&amp;n,&amp;m);<br>    LINK *p;<br>    p=CreateList(n);<br>    if (m==1)<br>    {<br>        for (int i=0;i&lt;n-1;i++)<br>       {<br>          p=p-&gt;next;<br>       }<br>       printf(“%d”,p-&gt;pos);<br>    }<br>    else<br>    {<br>        do<br>        {<br>            p=DeleteList(p,m);<br>              //for (int u=0;u&lt;m-1;u++)<br>                //p=p-&gt;next;<br>        }<br>        while (flag!=n-1);<br>        printf(“%d”,p-&gt;pos);<br>    }<br>    return 0;<br> }</p>
+        <p>#include&lt;stdio.h&gt;//（我是田忌）思路就是我快马快就直接比，我快马比他快马慢我就拿慢马顶他快马，快马一样快就比慢马。<br>int main ()<br>{<br>    int a[1001],b[1001],c[505];//a里装田忌的马，b里装king的马。c是后面用来装输出的。<br>    int i,j,n,ji,sum,tk,kk,tm,km,x,flag=0;//tk：田忌快马，kk：king快马，tm；田忌慢马，km；king慢马。其余都是工具变量。<br>    while(scanf(“%d”,&amp;n)&amp;&amp;n!=0)//当输入不等于零就不停。<br>    {<br>        for (i=0;i&lt;n;i++)<br>            scanf(“%d”,&amp;a[i]);<br>        for (i=0;i&lt;n;i++)<br>            scanf(“%d”,&amp;b[i]);<br>        for(i=0;i&lt;n-1;i++)//开始由高到低排序田忌的马<br>            for(j=0;j&lt;n-1-i;j++)<br>            if(a[j]&lt;a[j+1])<br>            {<br>                x=a[j];<br>                a[j]=a[j+1];<br>                a[j+1]=x;<br>            }<br>        for(i=0;i&lt;n-1;i++)//开始由高到低排序king的马<br>            for(j=0;j&lt;n-1-i;j++)<br>            if(b[j]&lt;b[j+1])<br>            {<br>                x=b[j];<br>                b[j]=b[j+1];<br>                b[j+1]=x;<br>            }<br>        ji=0;//用来计数<br>        tk=kk=0;//目前最快马下标是0（由前面的冒泡排序可知<br>        km=n-1;<br>        tm=n-1;//同理最慢马是最大下标<br>        sum=0;<br>        while (1)<br>        {<br>            if (ji==n)<br>            break;//while语句执行n轮（其实可以用for语句<br>            if (a[tk]&gt;b[kk])//田忌的最快马币king的还快，直接比。<br>            {<br>                sum+=200;<br>                tk–;<br>                kk–;<br>                ji++;<br>                continue;<br>            }<br>            if (a[tk]&lt;b[kk])//田忌的最快马跑不过，就拿最慢马对抗king快马。<br>            {<br>                sum-=200;<br>                tm++;<br>                kk–;<br>                ji++;<br>                continue;<br>            }<br>            if (a[tk]==b[kk])//快马一样，就看慢马。<br>            {<br>                if (a[tm]&gt;b[km])<br>                {<br>                    sum+=200;<br>                    tm–;<br>                    km–;<br>                    ji++;<br>                    continue;<br>                }<br>                if (a[tm]&lt;b[km])<br>                {<br>                    sum-=200;<br>                    tm–;<br>                    kk++;<br>                    ji++;<br>                    continue;<br>                }<br>                else//慢马平手<br>                {<br>                    if (a[tm]&lt;b[kk])//田忌慢马和king快马比<br>                    {<br>                        sum-=200;<br>                        tm–;<br>                        kk++;<br>                        ji++;<br>                        continue;<br>                    }<br>                    else if(a[tm]==b[kk])//田忌慢马和king快马一样快就没的比了<br>                    break;<br>                }<br>            }<br>        }</p>
+<pre><code>    c[flag]=sum;
+    flag++;
+}
+for (i=flag-1,j=0;i&gt;=0;i--,j++)
+{
+    if (j!=flag-1)
+        printf(&quot;%d\n&quot;,c[j]);
+    else
+        printf(&quot;%d&quot;,c[j]);
+}</code></pre><p>}</p>
 
       
 
@@ -254,7 +262,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/19/1052%E2%80%9D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +276,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/19/1052%E2%80%9D/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HDU 1052
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客文章</div>
+    <a href="/2020/01/15/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">约瑟夫环问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

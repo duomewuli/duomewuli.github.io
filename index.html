@@ -151,6 +151,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="hdu-1052”" class="article article-type-hdu  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/19/1052%E2%80%9D/">HDU 1052</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/19/1052%E2%80%9D/" class="archive-article-date">
+  	<time datetime="2020-01-18T16:02:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#include&lt;stdio.h&gt;//（我是田忌）思路就是我快马快就直接比，我快马比他快马慢我就拿慢马顶他快马，快马一样快就比慢马。<br>int main ()<br>{<br>    int a[1001],b[1001],c[505];//a里装田忌的马，b里装king的马。c是后面用来装输出的。<br>    int i,j,n,ji,sum,tk,kk,tm,km,x,flag=0;//tk：田忌快马，kk：king快马，tm；田忌慢马，km；king慢马。其余都是工具变量。<br>    while(scanf(“%d”,&amp;n)&amp;&amp;n!=0)//当输入不等于零就不停。<br>    {<br>        for (i=0;i&lt;n;i++)<br>            scanf(“%d”,&amp;a[i]);<br>        for (i=0;i&lt;n;i++)<br>            scanf(“%d”,&amp;b[i]);<br>        for(i=0;i&lt;n-1;i++)//开始由高到低排序田忌的马<br>            for(j=0;j&lt;n-1-i;j++)<br>            if(a[j]&lt;a[j+1])<br>            {<br>                x=a[j];<br>                a[j]=a[j+1];<br>                a[j+1]=x;<br>            }<br>        for(i=0;i&lt;n-1;i++)//开始由高到低排序king的马<br>            for(j=0;j&lt;n-1-i;j++)<br>            if(b[j]&lt;b[j+1])<br>            {<br>                x=b[j];<br>                b[j]=b[j+1];<br>                b[j+1]=x;<br>            }<br>        ji=0;//用来计数<br>        tk=kk=0;//目前最快马下标是0（由前面的冒泡排序可知<br>        km=n-1;<br>        tm=n-1;//同理最慢马是最大下标<br>        sum=0;<br>        while (1)<br>        {<br>            if (ji==n)<br>            break;//while语句执行n轮（其实可以用for语句<br>            if (a[tk]&gt;b[kk])//田忌的最快马币king的还快，直接比。<br>            {<br>                sum+=200;<br>                tk–;<br>                kk–;<br>                ji++;<br>                continue;<br>            }<br>            if (a[tk]&lt;b[kk])//田忌的最快马跑不过，就拿最慢马对抗king快马。<br>            {<br>                sum-=200;<br>                tm++;<br>                kk–;<br>                ji++;<br>                continue;<br>            }<br>            if (a[tk]==b[kk])//快马一样，就看慢马。<br>            {<br>                if (a[tm]&gt;b[km])<br>                {<br>                    sum+=200;<br>                    tm–;<br>                    km–;<br>                    ji++;<br>                    continue;<br>                }<br>                if (a[tm]&lt;b[km])<br>                {<br>                    sum-=200;<br>                    tm–;<br>                    kk++;<br>                    ji++;<br>                    continue;<br>                }<br>                else//慢马平手<br>                {<br>                    if (a[tm]&lt;b[kk])//田忌慢马和king快马比<br>                    {<br>                        sum-=200;<br>                        tm–;<br>                        kk++;<br>                        ji++;<br>                        continue;<br>                    }<br>                    else if(a[tm]==b[kk])//田忌慢马和king快马一样快就没的比了<br>                    break;<br>                }<br>            }<br>        }</p>
+<pre><code>    c[flag]=sum;
+    flag++;
+}
+for (i=flag-1,j=0;i&gt;=0;i--,j++)
+{
+    if (j!=flag-1)
+        printf(&quot;%d\n&quot;,c[j]);
+    else
+        printf(&quot;%d&quot;,c[j]);
+}</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/19/1052%E2%80%9D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-约瑟夫环问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
